@@ -7,10 +7,14 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
+import javax.swing.AbstractAction;
+import java.awt.event.ActionEvent;
+import javax.swing.Action;
 
 public class Affichage_JAVA_End_Page {
 
 	private JFrame frame;
+	private final Action action = new SwingAction();
 
 	/**
 	 * Launch the application.
@@ -55,8 +59,18 @@ public class Affichage_JAVA_End_Page {
 		frame.getContentPane().add(txtAResultat);
 		
 		JButton btnBack = new JButton("Retour");
+		btnBack.setAction(action);
 		btnBack.setBounds(456, 300, 127, 51);
 		frame.getContentPane().add(btnBack);
 	}
 
+	private class SwingAction extends AbstractAction {
+		public SwingAction() {
+			putValue(NAME, "Reour");
+			putValue(SHORT_DESCRIPTION, "Some short description");
+		}
+		public void actionPerformed(ActionEvent e) {
+			/*Code affichage général*/
+		}
+	}
 }

@@ -12,11 +12,15 @@ import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.SystemColor;
 import javax.swing.JLabel;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 
 public class Affichage_JAVA_First_Page {
 
 	private JFrame frame;
 	private JTextField txtFSaisie;
+	private final Action action = new SwingAction();
+	private final Action action_1 = new SwingAction_1();
 
 	/**
 	 * Launch the application.
@@ -57,6 +61,7 @@ public class Affichage_JAVA_First_Page {
 		txtFSaisie.setColumns(10);
 		
 		JButton btnSquare = new JButton("Carr\u00E9 parfait");
+		btnSquare.setAction(action);
 		btnSquare.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
@@ -66,6 +71,7 @@ public class Affichage_JAVA_First_Page {
 		frame.getContentPane().add(btnSquare);
 		
 		JButton btnPremier = new JButton("Nombre premier");
+		btnPremier.setAction(action_1);
 		btnPremier.setFont(new Font("Comic Sans MS", Font.PLAIN, 21));
 		btnPremier.setBounds(370, 128, 198, 87);
 		frame.getContentPane().add(btnPremier);
@@ -74,5 +80,26 @@ public class Affichage_JAVA_First_Page {
 		lblExplications.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
 		lblExplications.setBounds(98, 46, 253, 28);
 		frame.getContentPane().add(lblExplications);
+	}
+	private class SwingAction extends AbstractAction {
+		public SwingAction() {
+			putValue(NAME, "Carré parfait");
+			putValue(SHORT_DESCRIPTION, "Some short description");
+		}
+		public void actionPerformed(ActionEvent e) {
+			/*Code carré parfait*/
+		}
+		
+	}
+	
+	private class SwingAction_1 extends AbstractAction {
+		public SwingAction_1() {
+			putValue(NAME, "Nombre premier");
+			putValue(SHORT_DESCRIPTION, "Some short description");
+		}
+		public void actionPerformed(ActionEvent e) {
+			/*Code nombre premier*/
+		}
+		
 	}
 }
